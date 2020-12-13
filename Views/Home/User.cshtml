@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Names</title>
+    <title>User</title>
 </head>
-
 <body>
     @using viewModelFun.Models
-    @model List<User>
-    <h2>Here are some names!</h2>
-    @foreach (var name in Model)
-    {
-        <p>@name.FirstName @name.LastName</p>
-    }
-</body>
+    @model User
 
+    <h1>Here is a User!</h1>
+    <p>@Model.FirstName @Model.LastName</p>
+</body>
 </html>

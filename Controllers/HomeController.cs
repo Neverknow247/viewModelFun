@@ -18,15 +18,70 @@ namespace viewModelFun.Controllers
             _logger = logger;
         }
 
-        [HttpGet("")]
+        [HttpGet("/users")]
         public IActionResult Names()
         {
-            // to a View that has defined a model as @model string[]
-            string[] names = new string[]
+            User sally = new User()
             {
-                "Sally", "Billy", "Joey", "Moose"
+                FirstName = "Sally",
+                LastName = "Sue"
             };
-            return View(names);
+            User billy = new User()
+            {
+                FirstName = "Billy",
+                LastName = "Boy"
+            };
+            User joey = new User()
+            {
+                FirstName = "Joey",
+                LastName = "Jonah"
+            };
+            User moose = new User()
+            {
+                FirstName = "Moose",
+                LastName = "Smith"
+            };
+            List<User> users = new List<User>()
+            {
+                sally, billy, joey, moose
+            };
+            return View(users);
+        }
+
+        [HttpGet("")]
+        public IActionResult Message()
+        {
+            Message message = new Message()
+            {
+                Words = "Hello, if you are reading this then you are reading a message."
+            };
+            return View(message);
+        }
+
+        [HttpGet("/user")]
+        public IActionResult User()
+        {
+            User nathan = new User()
+            {
+                FirstName = "Nathan",
+                LastName = "Bell",
+            };
+            return View(nathan);
+        }
+
+        [HttpGet("/numbers")]
+        public IActionResult Number()
+        {
+            Numbers one = new Numbers()
+            {
+                Value = 1
+            };
+            Numbers two = new Numbers()
+            {
+                Value = 2
+            };
+            int[] arr = {one.Value,two.Value};
+            return View(arr);
         }
 
         public IActionResult Index()
